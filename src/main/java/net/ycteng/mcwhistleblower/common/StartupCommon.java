@@ -2,20 +2,16 @@ package net.ycteng.mcwhistleblower.common;
 
 import com.mojang.brigadier.CommandDispatcher;
 
-import net.minecraft.block.Block;
 import net.minecraft.command.CommandSource;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.ycteng.mcwhistleblower.McWhistleblower;
 import net.ycteng.mcwhistleblower.common.commands.ReportCommand;
+import net.ycteng.mcwhistleblower.common.network.Networking;
 
 @Mod.EventBusSubscriber(modid = McWhistleblower.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class StartupCommon 
@@ -33,7 +29,7 @@ public class StartupCommon
 	@SubscribeEvent
 	public static void init(final FMLCommonSetupEvent event)
 	{
-		
+		Networking.registerMessages();
 	}
 
 	@SubscribeEvent

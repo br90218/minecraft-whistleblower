@@ -1,4 +1,5 @@
 {
-    "block.mc-whistleblower.snitchingmachine": "Snitching Machine",
-    "message.snitchingmachine": "Snitches get rewards."
+    "block.mcwhistleblower.snitchingmachine": "Snitching Machine",
+    "message.snitchingmachine": "Snitches get rewards.",
+    "screen.mcwhistleblower.snitchingslip.confirm": "Report Them"
 }
