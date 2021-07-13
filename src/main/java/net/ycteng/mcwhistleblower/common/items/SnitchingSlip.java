@@ -19,12 +19,11 @@ public class SnitchingSlip extends WritableBookItem {
 				.tab(StartupCommon.ITEM_GROUP));
 	}
 
-	/*
 	@Override
 	public ActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
-		ListNBT slipNBT = playerEntity.getItemInHand(hand).getTag().getList("pages", Constants.NBT.TAG_STRING);
+		// TODO Auto-generated method stub
+		return super.use(world, playerEntity, hand);
 	}
-	*/
 	
 	
 }
