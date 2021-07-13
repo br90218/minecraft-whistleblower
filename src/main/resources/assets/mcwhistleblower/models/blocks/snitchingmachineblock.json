@@ -1,0 +1,11 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "down": "mcwhistleblower:blocks/snitchingmachineblock",
+        "up": "mcwhistleblower:blocks/snitchingmachineblock-top",
+        "north": "mcwhistleblower:blocks/snitchingmachineblock-front",
+        "south": "mcwhistleblower:blocks/snitchingmachineblock",
+        "east": "mcwhistleblower:blocks/snitchingmachineblock",
+        "west": "mcwhistleblower:blocks/snitchingmachineblock"
+    }
+}

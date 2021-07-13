@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "mcwhistleblower:block/snitchingmachineblock",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "mcwhistleblower:block/snitchingmachineblock",
+      "x": -90
+    },
+    "facing=north": {
+      "model": "mcwhistleblower:block/snitchingmachineblock"
+    },
+    "facing=south": {
+      "model": "mcwhistleblower:block/snitchingmachineblock",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mcwhistleblower:block/snitchingmachineblock",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "mcwhistleblower:block/snitchingmachineblock",
+      "y": 90
+    }
+  }
+}
