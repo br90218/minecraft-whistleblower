@@ -1,5 +1,6 @@
 {
     "block.mcwhistleblower.snitchingmachine": "Snitching Machine",
     "message.snitchingmachine": "Snitches get rewards.",
-    "screen.mcwhistleblower.snitchingslip.confirm": "Report Them"
+    "screen.mcwhistleblower.snitchingslip": "Snitching Slip",
+    "screen.mcwhistleblower.snitchingslip.container": ""
 }
