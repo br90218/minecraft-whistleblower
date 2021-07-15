@@ -18,6 +18,7 @@ public class DefaultGameState implements IGameState {
 	@Override
 	public void setGameState(int newState) {
 		currentState = newState;
+		runGameStateLogic();
 	}
 
 	@Override
