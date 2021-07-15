@@ -36,5 +36,6 @@ public class StartupCommon
 	public static void onRegisterCommandEvent(RegisterCommandsEvent event) {
 		CommandDispatcher<CommandSource> commandDispatcher = event.getDispatcher();
 		ReportCommand.register(commandDispatcher);
+		ChangeGameStateCommand.register(commandDispatcher);
 	}
 }

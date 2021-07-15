@@ -32,7 +32,7 @@ public class ReportCommand
 	{
 		ITextComponent messageValue = MessageArgument.getMessage(commandContext, "message");
 		TranslationTextComponent finalText = new TranslationTextComponent("chat.type.announcement",
-				commandContext.getSource().getDisplayName(), "ooooooo");
+				commandContext.getSource().getDisplayName(), messageValue);
 		Entity entity = commandContext.getSource().getEntity();
 		if (entity != null) {
 		      commandContext.getSource().getServer().getPlayerList().broadcastMessage(finalText, ChatType.SYSTEM, entity.getUUID());
