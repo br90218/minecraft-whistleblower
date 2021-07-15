@@ -29,5 +29,4 @@ public class Registration
 	public static final RegistryObject<Item> SNITCHINGMACHINEITEM = ITEMS.register("snitchingmachine", () -> new BlockItem(SNITCHINGMACHINEBLOCK.get(), new Item.Properties().tab(StartupCommon.ITEM_GROUP)));
 	
 	public static final RegistryObject<Item> SNITCHINGSLIPITEM = ITEMS.register("snitchingslip", SnitchingSlip::new);
-	
 }

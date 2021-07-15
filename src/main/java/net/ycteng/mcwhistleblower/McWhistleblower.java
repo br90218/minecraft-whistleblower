@@ -14,7 +14,7 @@ public class McWhistleblower
 {
 	public static final String MODID = "mcwhistleblower";
 	
-	private static final Logger LOGGER = LogManager.getLogger();
+	public static final Logger LOGGER = LogManager.getLogger();
 	
 	public McWhistleblower()
 	{

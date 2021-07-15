@@ -26,6 +26,8 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
+import net.ycteng.mcwhistleblower.common.Registration;
+import net.ycteng.mcwhistleblower.common.items.SnitchingSlip;
 
 public class SnitchingMachineBlock extends Block 
 {
@@ -54,7 +56,7 @@ public class SnitchingMachineBlock extends Block
 	public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult trace) {
 		if(!world.isClientSide) {
 			ItemStack heldItemStack = player.getItemInHand(hand);
-			boolean compareResult = heldItemStack.getItem().equals(Items.WRITABLE_BOOK);
+			boolean compareResult = heldItemStack.getItem().equals(Registration.SNITCHINGSLIPITEM.get());
 			if(!compareResult)
 			{
 				System.out.println("nn");
@@ -62,8 +64,8 @@ public class SnitchingMachineBlock extends Block
 			}
 			System.out.println("Received a snitching slip.");
 			CompoundNBT slipNBT = heldItemStack.getTag();
-			ListNBT pagesNBT = slipNBT.getList("pages", Constants.NBT.TAG_STRING);
-			System.out.println(pagesNBT.get(0).getAsString());
+			String content = slipNBT.getString(SnitchingSlip.CONTENT_KEY);
+			System.out.println(content);
 		}
 		return ActionResultType.SUCCESS;
 	}

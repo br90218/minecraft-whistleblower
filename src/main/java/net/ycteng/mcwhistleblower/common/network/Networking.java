@@ -22,9 +22,15 @@ public class Networking {
 				s -> true,
 				s -> true);
 		
+		INSTANCE.messageBuilder(UpdateSnitchingSlipContentPacket.class, nextId())
+			.encoder((updateSnitchingSlipContentPacket, packetBuffer) -> UpdateSnitchingSlipContentPacket.encode(updateSnitchingSlipContentPacket, packetBuffer))
+			.decoder(buf -> UpdateSnitchingSlipContentPacket.decode(buf))
+			.consumer(PacketHandlerOnServer::onPacketReceived)
+			.add();
+		
 		INSTANCE.messageBuilder(OpenSnitchingSlipGuiPacket.class, nextId())
-			.encoder((openSnitchSlipGuiPacket, packetBuffer) -> {})
-			.decoder(buf -> new OpenSnitchingSlipGuiPacket())
+			.encoder((openSnitchSlipGuiPacket, packetBuffer) -> OpenSnitchingSlipGuiPacket.encode(openSnitchSlipGuiPacket, packetBuffer))
+			.decoder(buf -> OpenSnitchingSlipGuiPacket.decode(buf))
 			.consumer(OpenSnitchingSlipGuiPacket::handle)
 			.add();
 	}
