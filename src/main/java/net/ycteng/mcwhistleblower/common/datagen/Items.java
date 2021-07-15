@@ -15,6 +15,7 @@ public class Items extends ItemModelProvider {
 	
 	@Override
 	protected void registerModels() {
+		singleTexture(Registration.SNITCHINGSLIPITEM.get().getRegistryName().getPath(), new ResourceLocation("item/handheld"), "layer0", new ResourceLocation(McWhistleblower.MODID, "items/snitchingslip"));
 		withExistingParent(Registration.SNITCHINGMACHINEITEM.get().getRegistryName().getPath(), new ResourceLocation(McWhistleblower.MODID, "blocks/snitchingmachineblock"));
 	}
 }
