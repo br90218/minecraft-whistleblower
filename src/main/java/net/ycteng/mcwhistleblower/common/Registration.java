@@ -4,7 +4,10 @@ package net.ycteng.mcwhistleblower.common;
 import static net.ycteng.mcwhistleblower.McWhistleblower.MODID;
 
 import net.minecraft.block.Block;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.DyeableArmorItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -12,6 +15,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.ycteng.mcwhistleblower.common.blocks.SnitchingMachineBlock;
 import net.ycteng.mcwhistleblower.common.items.SnitchingSlip;
+import net.ycteng.mcwhistleblower.common.items.TeamArmorMaterial;
 
 public class Registration 
 {
@@ -28,5 +32,11 @@ public class Registration
 	public static final RegistryObject<SnitchingMachineBlock> SNITCHINGMACHINEBLOCK = BLOCKS.register("snitchingmachineblock", SnitchingMachineBlock::new);
 	public static final RegistryObject<Item> SNITCHINGMACHINEITEM = ITEMS.register("snitchingmachine", () -> new BlockItem(SNITCHINGMACHINEBLOCK.get(), new Item.Properties().tab(StartupCommon.ITEM_GROUP)));
 	
-	public static final RegistryObject<Item> SNITCHINGSLIPITEM = ITEMS.register("snitchingslip", SnitchingSlip::new);
+	public static final RegistryObject<SnitchingSlip> SNITCHINGSLIPITEM = ITEMS.register("snitchingslip", SnitchingSlip::new);
+	
+	public static final RegistryObject<ArmorItem> TEAMARMOR_HELMET = ITEMS.register("teamarmor_helmet", () -> new ArmorItem(TeamArmorMaterial.TEAMARMOR, EquipmentSlotType.HEAD, new Item.Properties().tab(StartupCommon.ITEM_GROUP)));
+	public static final RegistryObject<ArmorItem> TEAMARMOR_CHESTPLATE = ITEMS.register("teamarmor_chestplate", () -> new ArmorItem(TeamArmorMaterial.TEAMARMOR, EquipmentSlotType.CHEST, new Item.Properties().tab(StartupCommon.ITEM_GROUP)));
+	public static final RegistryObject<ArmorItem> TEAMARMOR_LEGGINGS = ITEMS.register("teamarmor_leggings", () -> new ArmorItem(TeamArmorMaterial.TEAMARMOR, EquipmentSlotType.LEGS, new Item.Properties().tab(StartupCommon.ITEM_GROUP)));
+	public static final RegistryObject<ArmorItem> TEAMARMOR_BOOTS = ITEMS.register("teamarmor_boots", () -> new ArmorItem(TeamArmorMaterial.TEAMARMOR, EquipmentSlotType.FEET, new Item.Properties().tab(StartupCommon.ITEM_GROUP)));
+	
 }

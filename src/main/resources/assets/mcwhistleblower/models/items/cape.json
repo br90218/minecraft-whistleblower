@@ -1,0 +1,67 @@
+{
+	"credit": "Made with Blockbench",
+    "parent": "item/armor",
+	"textures": {
+		"0": "block/base",
+		"particle": "block/base"
+	},
+	"display": {
+		"head": {
+			"translation": [0, -29, 0],
+			"scale": [1.6, 1.6, 1.6]
+		}
+	},
+	"groups": [
+		{
+			"name": "cape",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0]
+		}
+	],
+	"loader": "forge:multi-layer",
+	"layers": {
+		"solid": {
+			"textures": {
+				"0": "mcwhistleblower:item/cape",
+				"particle": "block/base"
+			},
+			"elements": [
+				{
+					"from": [3, -1, 18],
+					"to": [13, 17, 20],
+					"rotation": {"angle": -22.5, "axis": "x", "origin": [0, 0, 0]},
+					"faces": {
+						"north": {"uv": [0, 0, 10, 16], "texture": "#0"},
+						"east": {"uv": [0, 0, 2, 16], "texture": "#0"},
+						"south": {"uv": [0, 0, 10, 16], "texture": "#0"},
+						"west": {"uv": [0, 0, 2, 16], "texture": "#0"},
+						"up": {"uv": [0, 0, 10, 2], "texture": "#0"},
+						"down": {"uv": [0, 0, 10, 2], "texture": "#0"}
+					}
+				}
+			]
+		},
+		"translucent": {
+			"textures": {
+				"0": "mcwhistleblower:item/cape",
+				"particle": "block/base"
+			},
+			"elements": [
+				{
+					"from": [3, -1, 18],
+					"to": [13, 17, 20],
+					"rotation": {"angle": -22.5, "axis": "x", "origin": [0, 0, 0]},
+					"faces": {
+						"north": {"uv": [0, 0, 10, 16], "texture": "#0"},
+						"east": {"uv": [0, 0, 2, 16], "texture": "#0"},
+						"south": {"uv": [0, 0, 10, 16], "texture": "#0"},
+						"west": {"uv": [0, 0, 2, 16], "texture": "#0"},
+						"up": {"uv": [0, 0, 10, 2], "texture": "#0"},
+						"down": {"uv": [0, 0, 10, 2], "texture": "#0"}
+					}
+				}
+			]
+		}
+	}
+}
