@@ -7,8 +7,8 @@ import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.LazyOptional;
 import net.ycteng.mcwhistleblower.McWhistleblower;
-import net.ycteng.mcwhistleblower.common.data.CapabilityPlayerState;
-import net.ycteng.mcwhistleblower.common.data.IPlayerState;
+import net.ycteng.mcwhistleblower.client.data.CapabilityLocalPlayerState;
+import net.ycteng.mcwhistleblower.client.data.ILocalPlayerState;
 
 public class TeamArmorItem extends DyeableArmorItem {
 
@@ -19,7 +19,7 @@ public class TeamArmorItem extends DyeableArmorItem {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
-		LazyOptional<IPlayerState> playerState = entity.getCapability(CapabilityPlayerState.PLAYERSTATE);
+		LazyOptional<ILocalPlayerState> playerState = entity.getCapability(CapabilityLocalPlayerState.LOCALPLAYERSTATE);
 		int number = playerState.resolve().get().getBackNumber();
 		if(slot == EquipmentSlotType.CHEST && type == "overlay")
 		{

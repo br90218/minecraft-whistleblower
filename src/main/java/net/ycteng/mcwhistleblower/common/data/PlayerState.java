@@ -2,6 +2,7 @@ package net.ycteng.mcwhistleblower.common.data;
 
 import java.util.Random;
 
+
 public class PlayerState implements IPlayerState {
 	
 	private int backNumber;
@@ -14,7 +15,7 @@ public class PlayerState implements IPlayerState {
 	@Override
 	public void setBackNumber() {
 		Random rand = new Random();
-		backNumber = rand.nextInt(3);
+		setBackNumber(rand.nextInt(3));
 	}
 
 	@Override

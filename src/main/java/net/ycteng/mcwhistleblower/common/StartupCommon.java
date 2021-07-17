@@ -14,6 +14,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.ycteng.mcwhistleblower.McWhistleblower;
+import net.ycteng.mcwhistleblower.client.data.CapabilityLocalPlayerState;
+import net.ycteng.mcwhistleblower.client.data.LocalPlayerStateHandler;
 import net.ycteng.mcwhistleblower.common.commands.ChangeBackNumberCommand;
 import net.ycteng.mcwhistleblower.common.commands.ChangeGameStateCommand;
 import net.ycteng.mcwhistleblower.common.commands.ReportCommand;
@@ -35,16 +37,18 @@ public class StartupCommon
 		}
 	};
 	
-	
 	@SubscribeEvent
 	public static void init(final FMLCommonSetupEvent event)
 	{
 		Networking.registerMessages();
 		CapabilityGameState.register();
 		CapabilityPlayerState.register();
+		CapabilityLocalPlayerState.register();
 		
+
 		MinecraftForge.EVENT_BUS.addGenericListener(World.class, GameStateHandler::onAttachCapabilitiesEvent);
 		MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, PlayerStateHandler::onAttachCapabilitiesEvent);
+		MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, LocalPlayerStateHandler::onAttachCapabilitiesEvent);
 	}
 
 	@SubscribeEvent

@@ -31,9 +31,6 @@ public class ChangeGameStateCommand {
 		McWhistleblower.LOGGER.debug("current gamestate: " + gameState.getGameState());
 		capability.resolve().get().toNextGameState();
 		McWhistleblower.LOGGER.debug("current gamestate: " + capability.resolve().get().getGameState());
-		LazyOptional<IPlayerState> playerCapability = commandContext.getSource().getPlayerOrException().getCapability(CapabilityPlayerState.PLAYERSTATE);
-		playerCapability.resolve().get().setBackNumber();
-		McWhistleblower.LOGGER.debug("current gamestate: " + playerCapability.resolve().get().getBackNumber());
 		return 0;
 	}
 }

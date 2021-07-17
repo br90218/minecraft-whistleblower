@@ -33,6 +33,12 @@ public class Networking {
 			.decoder(buf -> OpenSnitchingSlipGuiPacket.decode(buf))
 			.consumer(OpenSnitchingSlipGuiPacket::handle)
 			.add();
+		
+		INSTANCE.messageBuilder(UpdatePlayerStateToLocalPacket.class, nextId())
+			.encoder((updatePlayerStateToLocalPacket, packetBuffer) -> UpdatePlayerStateToLocalPacket.encode(updatePlayerStateToLocalPacket, packetBuffer))
+			.decoder(buf -> UpdatePlayerStateToLocalPacket.decode(buf))
+			.consumer(UpdatePlayerStateToLocalPacket::handle)
+			.add();
 	}
 	
 	public static void sendToClient(Object packet, ServerPlayerEntity player) {
