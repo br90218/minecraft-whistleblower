@@ -7,33 +7,33 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
-import net.minecraft.command.arguments.MessageArgument;
 import net.minecraftforge.common.util.LazyOptional;
 import net.ycteng.mcwhistleblower.McWhistleblower;
 import net.ycteng.mcwhistleblower.common.data.CapabilityGameState;
+import net.ycteng.mcwhistleblower.common.data.CapabilityPlayerState;
 import net.ycteng.mcwhistleblower.common.data.IGameState;
+import net.ycteng.mcwhistleblower.common.data.IPlayerState;
 
 
 public class ChangeGameStateCommand {
 	public static void register(CommandDispatcher<CommandSource> dispatcher) {
 		LiteralArgumentBuilder<CommandSource> changeGameStateCommand
 		= Commands.literal("gamestate")
-			.requires((commandSource) -> commandSource.hasPermission(2))
-			.then(Commands.argument("tostate", MessageArgument.message())
-					.executes(ChangeGameStateCommand::changeState)
-				);
+			.requires((commandSource) -> commandSource.hasPermission(0)).executes(ChangeGameStateCommand::changeState);
+		
 		dispatcher.register(changeGameStateCommand);
 	}
 	
 	static int changeState(CommandContext<CommandSource> commandContext) throws CommandSyntaxException {
-		int toState = Integer.parseInt(MessageArgument.getMessage(commandContext, "tostate").getString());
-		McWhistleblower.LOGGER.debug("Received change state command: " + toState);
+		McWhistleblower.LOGGER.debug("Received change state command");
 		LazyOptional<IGameState> capability = commandContext.getSource().getServer().overworld().getCapability(CapabilityGameState.WORLD_GAMESTATE);
 		IGameState gameState = capability.resolve().get();
 		McWhistleblower.LOGGER.debug("current gamestate: " + gameState.getGameState());
-		capability.resolve().get().setGameState(toState);
+		capability.resolve().get().toNextGameState();
 		McWhistleblower.LOGGER.debug("current gamestate: " + capability.resolve().get().getGameState());
+		LazyOptional<IPlayerState> playerCapability = commandContext.getSource().getPlayerOrException().getCapability(CapabilityPlayerState.PLAYERSTATE);
+		playerCapability.resolve().get().setBackNumber();
+		McWhistleblower.LOGGER.debug("current gamestate: " + playerCapability.resolve().get().getBackNumber());
 		return 0;
 	}
-	
 }

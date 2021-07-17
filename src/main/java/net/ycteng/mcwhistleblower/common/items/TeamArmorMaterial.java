@@ -15,7 +15,15 @@ import net.minecraftforge.api.distmarker.Dist;
 
 public enum TeamArmorMaterial implements IArmorMaterial {
 
-	TEAMARMOR("teamarmor", 1, new int[] { 1, 1, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_LEATHER, 1.0f, 1.0f, () -> {
+	
+	// I know this is bad, but there's no other way!
+	TEAMARMOR_BASE("teamarmor", 1, new int[] { 1, 1, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_LEATHER, 1.0f, 1.0f, () -> {
+		return Ingredient.of(Items.NETHERITE_INGOT);
+	}),
+	TEAMARMOR_001("teamarmor", 1, new int[] { 1, 8, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_LEATHER, 1.0f, 1.0f, () -> {
+		return Ingredient.of(Items.NETHERITE_INGOT);
+	}),
+	TEAMARMOR_002("teamarmor", 1, new int[] { 1, 15, 1, 1 }, 1, SoundEvents.ARMOR_EQUIP_LEATHER, 1.0f, 1.0f, () -> {
 		return Ingredient.of(Items.NETHERITE_INGOT);
 	});
 
