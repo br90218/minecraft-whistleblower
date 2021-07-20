@@ -4,6 +4,7 @@ import com.mojang.brigadier.CommandDispatcher;
 
 import net.minecraft.command.CommandSource;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,7 @@ import net.ycteng.mcwhistleblower.client.data.LocalPlayerStateHandler;
 import net.ycteng.mcwhistleblower.common.commands.ChangeBackNumberCommand;
 import net.ycteng.mcwhistleblower.common.commands.ChangeGameStateCommand;
 import net.ycteng.mcwhistleblower.common.commands.ReportCommand;
+import net.ycteng.mcwhistleblower.common.creatures.AlertmanEntity;
 import net.ycteng.mcwhistleblower.common.data.CapabilityGameState;
 import net.ycteng.mcwhistleblower.common.data.CapabilityPlayerState;
 import net.ycteng.mcwhistleblower.common.data.GameStateHandler;
@@ -49,6 +51,11 @@ public class StartupCommon
 		MinecraftForge.EVENT_BUS.addGenericListener(World.class, GameStateHandler::onAttachCapabilitiesEvent);
 		MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, PlayerStateHandler::onAttachCapabilitiesEvent);
 		MinecraftForge.EVENT_BUS.addGenericListener(Entity.class, LocalPlayerStateHandler::onAttachCapabilitiesEvent);
+		
+		event.enqueueWork(() -> {
+			GlobalEntityTypeAttributes.put(Registration.ALERTMAN.get(), AlertmanEntity.createAttributes().build());
+		});
+		
 	}
 
 	@SubscribeEvent

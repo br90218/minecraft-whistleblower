@@ -2,6 +2,7 @@ package net.ycteng.mcwhistleblower.common.items;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.DyeableArmorItem;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.ItemStack;
@@ -21,9 +22,16 @@ public class TeamArmorItem extends DyeableArmorItem {
 	public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlotType slot, String type) {
 		LazyOptional<ILocalPlayerState> playerState = entity.getCapability(CapabilityLocalPlayerState.LOCALPLAYERSTATE);
 		int number = playerState.resolve().get().getBackNumber();
+		if(slot == EquipmentSlotType.HEAD && type == null) {
+			return McWhistleblower.MODID +":" + "textures/models/armor/teamarmor_yellow_layer_1.png";
+		}
+		if(slot == EquipmentSlotType.CHEST && type == null)
+		{
+			return McWhistleblower.MODID +":" + "textures/models/armor/teamarmor_yellow_layer_1.png";
+		}
 		if(slot == EquipmentSlotType.CHEST && type == "overlay")
 		{
-			return McWhistleblower.MODID + ":" + "textures/models/armor/teamarmor" + number + "_layer_1_overlay.png";
+			return McWhistleblower.MODID + ":" + "textures/models/armor/number_dark_layer_1_overlay.png";
 		}
 		return null;
 	}
